@@ -39,24 +39,21 @@ class TriangleTest extends PHPUnit_Framework_TestCase{
 		$side2 = 5;
 		$side3 = 5;
         $this->assertEquals(true, $this->triangle->validateTriangle( $side1, $side2, $side3 ) );
-        $this->assertEquals(1, $this->triangle->getTriangleKind( $side1, $side2, $side3 ) );
-        $this->assertEquals(1, $this->triangle->isTriangle3( $side1, $side2, $side3 ) );
+        $this->assertEquals(Triangle::equilateral_triangle, $this->triangle->getTriangleId( $side1, $side2, $side3 ) );
 		
 		// ・二等辺三角形の場合は2
 		$side1 = 4;
 		$side2 = 4;
 		$side3 = 5;
         $this->assertEquals(true, $this->triangle->validateTriangle( $side1, $side2, $side3 ) );
-        $this->assertEquals(2, $this->triangle->getTriangleKind( $side1, $side2, $side3 ) );
-        $this->assertEquals(2, $this->triangle->isTriangle2( $side1, $side2, $side3 ) );
+        $this->assertEquals(Triangle::isosceles_triangle, $this->triangle->getTriangleId( $side1, $side2, $side3 ) );
 		
 		// ・不等辺三角形の場合は3
 		$side1 = 3;
 		$side2 = 4;
 		$side3 = 5;
         $this->assertEquals(true, $this->triangle->validateTriangle( $side1, $side2, $side3 ) );
-        $this->assertEquals(3, $this->triangle->getTriangleKind( $side1, $side2, $side3 ) );
-        $this->assertEquals(3, $this->triangle->isTriangle0( $side1, $side2, $side3 ) );
+        $this->assertEquals(Triangle::scalene_triangle, $this->triangle->getTriangleId( $side1, $side2, $side3 ) );
 		
 	}
 	
