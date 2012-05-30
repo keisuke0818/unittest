@@ -23,11 +23,12 @@ class Triangle {
 			return false;
 		}
 		//‚P•Ó‚ª‚Q•Ó‚ð‘«‚µ‚½ˆÈ‰º
-		if( !( ($side1 < $side2 + $side3) && ($side2 < $side1 + $side3) && ($side3 < $side1 + $side2) ) ){
+		//‚P•Ó‚ªˆê”Ô’·‚¢
+		$side_list = array($side1, $side2, $side3);
+		rsort($side_list);
+		if( !( ($side_list[0] < $side_list[1] + $side_list[2]) ) ){
 			return false;
 		}
-		//‚P•Ó‚ªˆê”Ô’·‚¢
-		
 		return true;
 	}
 	
